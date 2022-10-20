@@ -4,7 +4,7 @@ namespace BookAPI.Interfaces
 {
     public interface IBookRepository
     {
-        Task<Book> Get(Guid id);
+        Task<Book> GetBookById(Guid id);
         Task<IEnumerable<Book>> Get();
         Task Delete(Guid id);
 

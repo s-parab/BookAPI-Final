@@ -32,7 +32,7 @@ namespace BookAPI.Repositories
             }
         }
 
-        public async Task<Book> Get(Guid id)
+        public async Task<Book> GetBookById(Guid id)
         {
             return await _context.Books.FindAsync(id);
         }

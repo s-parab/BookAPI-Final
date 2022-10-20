@@ -17,15 +17,16 @@ namespace BookAPI.Controllers
             _bookRepository = bookRepository;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public async Task<IEnumerable<Book>> GetBooks() => await _bookRepository.Get();
 
-        [HttpGet]
+        
+        [HttpGet("{id}")]
         [ProducesResponseType(typeof(Book), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Book), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<Book>> GetBookById(Guid id, Book book) 
         {
-            await _bookRepository.Get(id);
+            await _bookRepository.GetBookById(id);
             return book == null ? NotFound() : Ok(book);
         }
 
